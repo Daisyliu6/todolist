@@ -3,12 +3,14 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const _ = require("loadsh");
 const app = express();
+const dotenv = require("dotenv");
 
+dotenv.config();
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect("mongodb+srv://adminDaisy:tUiMFWYqu5mzi2uC@cluster0-w0nfe.mongodb.net/todolistDB?retryWrites=true&w=majority", {
+mongoose.connect(process.env.DB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
