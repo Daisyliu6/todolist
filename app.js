@@ -46,7 +46,7 @@ app.get("/", function (req, res) {
       });
       res.redirect("/");
     } else {
-      res.render("list", { listTitle: "Today", newItems: foundItems });
+    res.render("list", { listTitle: "Today", newItems: foundItems });
     }
   });
 });
@@ -81,7 +81,7 @@ app.post("/", function (req, res) {
   const item = new Item({
     name: itemName,
   });
-  if (listTitleName === "Today") {
+ if (listTitleName === "Today") {
     item.save();
     res.redirect("/");
   } else {
